@@ -48,7 +48,10 @@ var generatePassword = function () {
     //The below assignment will attempt convert the entered string to a number.
     lengthPrompt = parseInt(lengthPrompt)
 
-    //This will check to confirm if the prompt is a Number and between 8 and 128, if not it will soft fail
+    /*
+    This will check to confirm if the prompt is a Number or a number between 8 and 128.
+    If not it will trigger an alert popup of the error and set the result string to also inform of an error
+    */
     if (isNaN(lengthPrompt) || lengthPrompt < 8 || lengthPrompt > 128) {
         alert("Enter a valid number between 8 and 128")
         return (result = "Error, try again")
@@ -84,9 +87,8 @@ var generatePassword = function () {
 
     //generate the objects charlist property
     passwordProps.includeChar()
-    console.log(passwordProps.charList)
 
-    //Check if no character types have been selected and return an error.
+    //Check if no character types have been selected, trigger an alert and return an error.
     if (passwordProps.charList == "") {
         alert("No Character types selected, press the button again")
         return (result = "Error, try again")
